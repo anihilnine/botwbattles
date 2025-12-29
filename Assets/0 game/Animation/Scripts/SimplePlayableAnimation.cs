@@ -17,7 +17,7 @@ public class SimplePlayableAnimation : MonoBehaviour
         graph.SetTimeUpdateMode(DirectorUpdateMode.Manual);
 
         var output = AnimationPlayableOutput.Create(graph, "AnimOutput", animator);
-        var mixer = AnimationMixerPlayable.Create(graph, clips.Length);
+        var mixer = AnimationLayerMixerPlayable.Create(graph, clips.Length);
         for (var i = 0; i < clips.Length; i++)
         {
             clips[i].Init(graph, mixer, i);
@@ -124,6 +124,7 @@ public class SimpleClipData
     public float fadeInDuration = 0; // in source clip time
     public float fadeOutDuration = 0; // in source clip time  
     public bool loop;
+    public bool additive;
 
     [Header("Debug")] 
     public int index;
@@ -132,17 +133,21 @@ public class SimpleClipData
     public float currentTimeRemaining;
     public bool isPlaying;
     public AnimationClipPlayable playable;
-    public AnimationMixerPlayable mixer;
+    public AnimationLayerMixerPlayable mixer;
     public float fadedWeight;
     public float normalizedWeight;
 
 
-    public void Init(PlayableGraph graph, AnimationMixerPlayable mixer, int index)
+    public void Init(PlayableGraph graph, AnimationLayerMixerPlayable mixer, int index)
     {
         this.index = index;
         this.mixer = mixer;
         sourceClipTime = clip.length;
         playable = AnimationClipPlayable.Create(graph, clip);
+        if (this.additive)
+        {
+            mixer.SetLayerAdditive((uint)index, true);
+        }
         playable.Pause();
         playable.SetSpeed(speed);
         graph.Connect(playable, 0, mixer, index);
