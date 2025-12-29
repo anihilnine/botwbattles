@@ -116,14 +116,13 @@ public class SimplePlayableAnimation : MonoBehaviour
 [Serializable]
 public class SimpleClipData
 {
-    [Header("Inputs")]
+    [Header("Inputs")] 
+    public string desc; // just for designera
     public AnimationClip clip;
-    // public float cutoffStart = 0;
-    // public float cutoffEnd = 0;
     public float speed = 1;
     public float weight = 1;
-    public float fadeInDuration = 0; // todo: make in source clip time 
-    public float fadeOutDuration = 0;  
+    public float fadeInDuration = 0; // in source clip time
+    public float fadeOutDuration = 0; // in source clip time  
     public bool loop;
 
     [Header("Debug")] 
@@ -158,7 +157,7 @@ public class SimpleClipData
 
     public void Update()
     {
-        currentTime = (float)playable.GetTime(); // todo: this needs to be in sourcetime
+        currentTime = (float)playable.GetTime();
         currentTimeRemaining = sourceClipTime - currentTime;
 
         if (currentTime < fadeInDuration)
@@ -196,6 +195,5 @@ public class SimpleClipData
     {
         this.normalizedWeight = weight;
         mixer.SetInputWeight(index, weight);
-
     }
 }
