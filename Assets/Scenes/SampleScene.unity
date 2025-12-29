@@ -652,32 +652,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1447472617}
   clips:
-  - clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
-    speed: 0.3
-    weight: 0.1
+  - desc: looping crouch
+    clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
+    speed: 1
+    weight: 1
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 1
+    additive: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
-    currentTimeRemaining: 0
     isPlaying: 0
     fadedWeight: 0
     normalizedWeight: 0
-  - clip: {fileID: -203655887218126122, guid: 8145c8b28f6aac348bba3b01bdd87593, type: 3}
+    endTime: 0
+    fadeOutStartTime: 0
+  - desc: swing
+    clip: {fileID: -203655887218126122, guid: 8145c8b28f6aac348bba3b01bdd87593, type: 3}
     speed: 1
     weight: 1
     fadeInDuration: 0.2
     fadeOutDuration: 0.2
     loop: 0
+    additive: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
-    currentTimeRemaining: 0
     isPlaying: 0
     fadedWeight: 0
     normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+  - desc: swing2
+    clip: {fileID: -203655887218126122, guid: 5dd564bab85d5c3468c4c5cbb5e1cf1e, type: 3}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
+    loop: 0
+    additive: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
 --- !u!95 &1447472617
 Animator:
   serializedVersion: 5

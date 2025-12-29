@@ -86,6 +86,18 @@ public class SimplePlayableAnimation : MonoBehaviour
         {
             clips[2].Play();
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            clips[0].Stop();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            clips[1].Stop();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            clips[2].Stop();
+        }
     }
 
     void OnDestroy()
