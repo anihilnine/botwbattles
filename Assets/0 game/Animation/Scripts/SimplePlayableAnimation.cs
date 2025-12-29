@@ -24,7 +24,7 @@ public class SimplePlayableAnimation : MonoBehaviour
         }
 
         output.SetSourcePlayable(mixer);
-        //graph.Play();
+        graph.Play();
     }
 
     private void Update()
@@ -74,11 +74,11 @@ public class SimplePlayableAnimation : MonoBehaviour
 
         graph.Evaluate(Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             clips[0].Play();
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             clips[1].Play();
         }
@@ -155,8 +155,13 @@ public class SimpleClipData
         playable.Play();
     }
 
+    // todo: have stop method with fadeout
+    
     public void Update()
     {
+        // todo: is there a cost to doing this every frame?
+        playable.SetSpeed(speed);
+        
         currentTime = (float)playable.GetTime();
         currentTimeRemaining = sourceClipTime - currentTime;
 
@@ -187,6 +192,7 @@ public class SimpleClipData
             else
             {
                 isPlaying = false;
+                playable.Pause();
             }
         }
     }
