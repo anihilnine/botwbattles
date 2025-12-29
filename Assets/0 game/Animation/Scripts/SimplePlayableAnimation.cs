@@ -82,6 +82,10 @@ public class SimplePlayableAnimation : MonoBehaviour
         {
             clips[1].Play();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            clips[2].Play();
+        }
     }
 
     void OnDestroy()
@@ -130,12 +134,13 @@ public class SimpleClipData
     public int index;
     public float sourceClipTime;
     public float currentTime;
-    public float currentTimeRemaining;
     public bool isPlaying;
     public AnimationClipPlayable playable;
     public AnimationLayerMixerPlayable mixer;
     public float fadedWeight;
     public float normalizedWeight;
+    public float endTime;
+    public float fadeOutStartTime;
 
 
     public void Init(PlayableGraph graph, AnimationLayerMixerPlayable mixer, int index)
@@ -155,9 +160,25 @@ public class SimpleClipData
 
     public void Play()
     {
+        fadeOutStartTime = sourceClipTime - fadeOutDuration;
+        endTime = sourceClipTime;
         isPlaying = true;
         playable.SetTime(0);
         playable.Play();
+    }
+
+    public void Stop()
+    {
+        // should start stopping
+        if (fadeOutDuration > 0f)
+        {
+            fadeOutStartTime = (float)playable.GetTime();
+            endTime = Mathf.Min(fadeOutStartTime + fadeOutDuration, sourceClipTime);
+        }
+        else
+        {
+            StopImmediate();
+        }
     }
 
     // todo: have stop method with fadeout
@@ -168,25 +189,24 @@ public class SimpleClipData
         playable.SetSpeed(speed);
         
         currentTime = (float)playable.GetTime();
-        currentTimeRemaining = sourceClipTime - currentTime;
 
-        if (currentTime < fadeInDuration)
+        var isFadeIn = currentTime < fadeInDuration;
+        var isFadeOut =  currentTime > fadeOutStartTime;
+
+        if (isFadeOut)
         {
-            // fading in
-            fadedWeight = Mathf.Clamp01(Mathf.InverseLerp(0, fadeInDuration, currentTime)) * weight;
+            fadedWeight = Mathf.Clamp01(Mathf.InverseLerp(endTime, fadeOutStartTime, currentTime)) * weight;
         }
-        else if (currentTimeRemaining < fadeOutDuration)
+        else if (isFadeIn)
         {
-            // fading out
-            fadedWeight = Mathf.Clamp01(Mathf.InverseLerp(0, fadeOutDuration, currentTimeRemaining)) * weight;
+            fadedWeight = Mathf.Clamp01(Mathf.InverseLerp(0, fadeInDuration, currentTime)) * weight;
         }
         else
         {
-            // normal
             fadedWeight = weight;
         }
-
-        var isFinished = currentTime >= sourceClipTime;
+        
+        var isFinished = currentTime >= endTime;
 
         if (isFinished)
         {
@@ -196,10 +216,15 @@ public class SimpleClipData
             }
             else
             {
-                isPlaying = false;
-                playable.Pause();
+                StopImmediate();
             }
         }
+    }
+
+    private void StopImmediate()
+    {
+        isPlaying = false;
+        playable.Pause();
     }
 
     public void SetNormalizedWeight(float weight)
