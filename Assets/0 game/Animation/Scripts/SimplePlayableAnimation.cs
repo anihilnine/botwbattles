@@ -48,6 +48,8 @@ public class SimplePlayableAnimation : MonoBehaviour
             }
         }
 
+        // todo: base layer
+        // todo: sum primary and secondary animations seperately with budget for secondary
         if (sumWeight > 0)
         {
             foreach (var clip in clips)
@@ -105,28 +107,6 @@ public class SimplePlayableAnimation : MonoBehaviour
         if (graph.IsValid())
             graph.Destroy();
     }
-
-    // Optional helpers ↓↓↓
-
-    // public void Play()
-    // {
-    //     graph.Play();
-    // }
-
-    // public void Stop()
-    // {
-    //     playable.SetSpeed(0f);
-    // }
-    //
-    // public void SetSpeed(float speed)
-    // {
-    //     playable.SetSpeed(speed);
-    // }
-    //
-    //  public bool IsFinished()
-    //  {
-    //      return clip.GetTime() >= clip.length;
-    // }
 }
 
 [Serializable]
@@ -164,6 +144,7 @@ public class SimpleClipData
         if (this.additive)
         {
             mixer.SetLayerAdditive((uint)index, true);
+            // todo: add avatar mask
         }
         playable.Pause();
         playable.SetSpeed(speed);
@@ -193,8 +174,6 @@ public class SimpleClipData
         }
     }
 
-    // todo: have stop method with fadeout
-    
     public void Update()
     {
         // todo: is there a cost to doing this every frame?
