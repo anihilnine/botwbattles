@@ -535,6 +535,11 @@ MonoBehaviour:
   defaultSpeed: 1
   blendTime: 0.25
   useCrossfade: 1
+  activeClipIndex: -1
+  isInitialized: 0
+  currentTime: 0
+  isPlaying: 0
+  currentSpeed: 1
 --- !u!95 &1423068091
 Animator:
   serializedVersion: 5
@@ -631,6 +636,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1447472616}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1a8289cdb35d794188be30af708681c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1447472620}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1a8289cdb35d794188be30af708681c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1447472619}
   m_SourcePrefab: {fileID: 100100000, guid: b1a8289cdb35d794188be30af708681c, type: 3}
 --- !u!1 &1447472615 stripped
 GameObject:
@@ -651,55 +664,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1447472617}
-  clips:
-  - desc: looping crouch
-    clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
-    speed: 1
-    weight: 1
-    fadeInDuration: 0
-    fadeOutDuration: 0
-    loop: 1
-    additive: 0
-    index: 0
-    sourceClipTime: 0
-    currentTime: 0
-    isPlaying: 0
-    fadedWeight: 0
-    normalizedWeight: 0
-    endTime: 0
-    fadeOutStartTime: 0
-  - desc: swing
-    clip: {fileID: -203655887218126122, guid: 8145c8b28f6aac348bba3b01bdd87593, type: 3}
-    speed: 1
-    weight: 1
-    fadeInDuration: 0.2
-    fadeOutDuration: 0.2
-    loop: 0
-    additive: 0
-    index: 0
-    sourceClipTime: 0
-    currentTime: 0
-    isPlaying: 0
-    fadedWeight: 0
-    normalizedWeight: 0
-    endTime: 0
-    fadeOutStartTime: 0
-  - desc: swing2
-    clip: {fileID: -203655887218126122, guid: 5dd564bab85d5c3468c4c5cbb5e1cf1e, type: 3}
-    speed: 1
-    weight: 1
-    fadeInDuration: 0.2
-    fadeOutDuration: 0.2
-    loop: 0
-    additive: 0
-    index: 0
-    sourceClipTime: 0
-    currentTime: 0
-    isPlaying: 0
-    fadedWeight: 0
-    normalizedWeight: 0
-    endTime: 0
-    fadeOutStartTime: 0
+  actionController: {fileID: 1447472620}
+  actions: []
 --- !u!95 &1447472617
 Animator:
   serializedVersion: 5
@@ -721,6 +687,98 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1447472619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447472615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952a0276eef441469b23b0ae918af56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionController: {fileID: 1447472620}
+--- !u!114 &1447472620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447472615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7354411eeca274ea4baf10cf71e4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - key: dodge
+    desc: looping crouch
+    clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 1
+    additive: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: attack
+    desc: swing
+    clip: {fileID: -203655887218126122, guid: 8145c8b28f6aac348bba3b01bdd87593, type: 3}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
+    loop: 0
+    additive: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: 
+    desc: swing2
+    clip: {fileID: -203655887218126122, guid: 5dd564bab85d5c3468c4c5cbb5e1cf1e, type: 3}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
+    loop: 0
+    additive: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

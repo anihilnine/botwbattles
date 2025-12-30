@@ -1,119 +1,14 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
 
-public class SimplePlayableAnimation : MonoBehaviour
-{
-    public Animator animator;
-
-    PlayableGraph graph;
-
-    public SimpleClipData[] clips;
-
-    void Awake()
-    {
-        graph = PlayableGraph.Create("SingleClipGraph");
-        graph.SetTimeUpdateMode(DirectorUpdateMode.Manual);
-
-        var output = AnimationPlayableOutput.Create(graph, "AnimOutput", animator);
-        var mixer = AnimationLayerMixerPlayable.Create(graph, clips.Length);
-        for (var i = 0; i < clips.Length; i++)
-        {
-            clips[i].Init(graph, mixer, i);
-        }
-
-        output.SetSourcePlayable(mixer);
-        graph.Play();
-    }
-
-    private void Update()
-    {
-        // if (IsFinished())
-        // {
-        //     Play();
-        // }
-        //
-        foreach (var clip in clips)
-        {
-            clip.Update();
-        }
-
-        float sumWeight = 0;
-        foreach (var clip in clips)
-        {
-            if (clip.isPlaying)
-            {
-                sumWeight += clip.fadedWeight;
-            }
-        }
-
-        // todo: base layer
-        // todo: sum primary and secondary animations seperately with budget for secondary
-        if (sumWeight > 0)
-        {
-            foreach (var clip in clips)
-            {
-                if (clip.isPlaying)
-                {
-                    var weight = clip.fadedWeight / sumWeight;
-                    clip.SetNormalizedWeight(weight);
-                }
-                else
-                {
-                    clip.SetNormalizedWeight(0);
-                }
-            }
-        }
-        else
-        {
-            foreach (var clip in clips)
-            {
-                clip.SetNormalizedWeight(0);
-            }
-        }
-        
-
-        graph.Evaluate(Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            clips[0].Play();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            clips[1].Play();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            clips[2].Play();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            clips[0].Stop();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            clips[1].Stop();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            clips[2].Stop();
-        }
-    }
-
-    void OnDestroy()
-    {
-        if (graph.IsValid())
-            graph.Destroy();
-    }
-}
-
 [Serializable]
-public class SimpleClipData
+public class ActionData
 {
-    [Header("Inputs")] 
-    public string desc; // just for designera
+    [Header("Inputs")]
+    public string key; // so inputcontroller can find the right actiondata
+    public string desc; // just for designer
     public AnimationClip clip;
     public float speed = 1;
     public float weight = 1;
@@ -133,6 +28,13 @@ public class SimpleClipData
     public float normalizedWeight;
     public float endTime;
     public float fadeOutStartTime;
+    
+    [Header("todo")] 
+    public float comboStartNormalized;
+    public float comboEndNormalized;
+    public float dodgeCancelStartNormalized;
+    public float dodgeCancelEndNormalized;
+    public float recoveryEndNormalized;
 
 
     public void Init(PlayableGraph graph, AnimationLayerMixerPlayable mixer, int index)
