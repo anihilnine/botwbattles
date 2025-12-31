@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 [Serializable]
 public class ActionData
 {
-    [Header("Inputs")]
+    [Header("=== Inputs")]
     public string key; // so inputcontroller can find the right actiondata
     public string desc; // just for designer
     public AnimationClip clip;
@@ -18,7 +18,7 @@ public class ActionData
     public bool additive;
     public bool log;
 
-    [Header("Debug")] 
+    [Header("=== Debug")] 
     public int index;
     public float sourceClipTime;
     public float currentTime;
@@ -30,8 +30,9 @@ public class ActionData
     public float normalizedWeight;
     public float endTime;
     public float fadeOutStartTime;
+    public bool looping;
     
-    [Header("todo")] 
+    [Header("=== Todo")] 
     public float comboStartNormalized;
     public float comboEndNormalized;
     public float dodgeCancelStartNormalized;
@@ -68,6 +69,7 @@ public class ActionData
         fadeOutStartTime = sourceClipTime - fadeOutDuration;
         endTime = sourceClipTime;
         isPlaying = true;
+        looping = loop;
         playable.SetTime(0);
         playable.Play();
     }
@@ -75,6 +77,7 @@ public class ActionData
     public void Stop()
     {
         Log($"Stop");
+        looping = false;
         // should start stopping
         if (fadeOutDuration > 0f)
         {
@@ -95,9 +98,9 @@ public class ActionData
         
         currentTime = (float)playable.GetTime();
         normalizedTime = currentTime / endTime; // ? should this be sourceClipTime or endTime
-        Log($"currentTime: {currentTime}");
-        Log($"endTime: {endTime}");
-        Log($"normalizedTime: {normalizedTime}");
+        // Log($"currentTime: {currentTime}");
+        // Log($"endTime: {endTime}");
+        // Log($"normalizedTime: {normalizedTime}");
 
 
         var isFadeIn = currentTime < fadeInDuration;
@@ -121,7 +124,7 @@ public class ActionData
         if (isFinished)
         {
             // for 'dodge' if there is a fade out duration there is a bug here because you can stop, but it loops anyway. 
-            if (loop)
+            if (looping)
             {
                 playable.SetTime(0);
             }

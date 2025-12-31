@@ -42,6 +42,12 @@ public class AnimationController : MonoBehaviour
         if (actionController.dodgeEnded)
             actionController.dodgeAction.Stop();
         
+        if (actionController.breatheStarted)
+            actionController.breathAction.Play();
+
+        if (actionController.breatheEnded)
+            actionController.breathAction.Stop();
+        
         if (actionController.hitStarted)
             actionController.hitAction.Play();
 

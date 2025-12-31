@@ -21,5 +21,11 @@ public class InputController : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.Space))
             actionController.RequestStopDodge();
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            actionController.RequestBreathe();
+        
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+            actionController.RequestStopBreathe();
     }
 }
