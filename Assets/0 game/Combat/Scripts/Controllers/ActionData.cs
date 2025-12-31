@@ -10,6 +10,7 @@ public class ActionData
     public string key; // so inputcontroller can find the right actiondata
     public string desc; // just for designer
     public AnimationClip clip;
+    public AvatarMask mask;
     public float speed = 1;
     public float weight = 1;
     public float fadeInDuration = 0; // in source clip time
@@ -45,6 +46,12 @@ public class ActionData
         this.mixer = mixer;
         sourceClipTime = clip.length;
         playable = AnimationClipPlayable.Create(graph, clip);
+        if (mask != null)
+        {
+            Log("masking");
+            mixer.SetLayerMaskFromAvatarMask((uint)index, mask);
+        }
+
         if (this.additive)
         {
             mixer.SetLayerAdditive((uint)index, true);

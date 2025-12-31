@@ -76,7 +76,8 @@ public class AnimationController : MonoBehaviour
             {
                 if (clip.isPlaying)
                 {
-                    var weight = clip.fadedWeight / sumWeight;
+                    //var weight = clip.fadedWeight / sumWeight;
+                    var weight = clip.fadedWeight;
                     clip.SetNormalizedWeight(weight);
                 }
                 else

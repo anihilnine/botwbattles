@@ -701,6 +701,7 @@ MonoBehaviour:
   - key: dodge
     desc: looping crouch
     clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -717,6 +718,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -725,6 +727,7 @@ MonoBehaviour:
   - key: attack
     desc: swing
     clip: {fileID: -203655887218126122, guid: 8145c8b28f6aac348bba3b01bdd87593, type: 3}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0.2
@@ -741,6 +744,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -749,6 +753,7 @@ MonoBehaviour:
   - key: hit
     desc: 
     clip: {fileID: -203655887218126122, guid: 91316a27f53c68f4fac0c84649983df0, type: 3}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0.2
@@ -765,6 +770,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -773,6 +779,7 @@ MonoBehaviour:
   - key: breathe
     desc: 
     clip: {fileID: -203655887218126122, guid: e66a25f96a5120247979849a5cf5ada2, type: 3}
+    mask: {fileID: 31900000, guid: 25bad095379fec247a0179dc90b93ec0, type: 2}
     speed: 1
     weight: 1
     fadeInDuration: 0.3
@@ -789,6 +796,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -799,6 +807,7 @@ MonoBehaviour:
     key: 
     desc: 
     clip: {fileID: 0}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -815,6 +824,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -833,6 +843,7 @@ MonoBehaviour:
     key: 
     desc: 
     clip: {fileID: 0}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -849,6 +860,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -861,6 +873,7 @@ MonoBehaviour:
     key: 
     desc: 
     clip: {fileID: 0}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -877,6 +890,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -886,6 +900,7 @@ MonoBehaviour:
     key: 
     desc: 
     clip: {fileID: 0}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -902,6 +917,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -911,6 +927,7 @@ MonoBehaviour:
     key: 
     desc: 
     clip: {fileID: 0}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -927,6 +944,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -936,6 +954,7 @@ MonoBehaviour:
     key: 
     desc: 
     clip: {fileID: 0}
+    mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0
@@ -952,6 +971,7 @@ MonoBehaviour:
     normalizedWeight: 0
     endTime: 0
     fadeOutStartTime: 0
+    looping: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
