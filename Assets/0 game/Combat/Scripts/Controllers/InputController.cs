@@ -13,6 +13,9 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
             actionController.RequestAttack(actionController.attackAction);
 
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+            actionController.RequestHit();
+
         if (Input.GetKeyDown(KeyCode.Space))
             actionController.RequestDodge();
         

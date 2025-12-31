@@ -525,21 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904cb6dc77cd95345b53f0a5ede21581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationClips:
-  - {fileID: -203655887218126122, guid: 26cac1339f2e2b2479ae109d891c0b76, type: 3}
-  - {fileID: -203655887218126122, guid: 5dd564bab85d5c3468c4c5cbb5e1cf1e, type: 3}
-  - {fileID: -203655887218126122, guid: dff03d3c6ff488c4a9dcdc5043ec6705, type: 3}
-  - {fileID: -203655887218126122, guid: 8145c8b28f6aac348bba3b01bdd87593, type: 3}
-  - {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
-  autoPlay: 0
-  defaultSpeed: 1
-  blendTime: 0.25
-  useCrossfade: 1
-  activeClipIndex: -1
-  isInitialized: 0
-  currentTime: 0
-  isPlaying: 0
-  currentSpeed: 1
 --- !u!95 &1423068091
 Animator:
   serializedVersion: 5
@@ -718,13 +703,15 @@ MonoBehaviour:
     clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
     speed: 1
     weight: 1
-    fadeInDuration: 0
+    fadeInDuration: 0.5
     fadeOutDuration: 0
     loop: 1
     additive: 0
+    log: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
+    normalizedTime: 0
     isPlaying: 0
     fadedWeight: 0
     normalizedWeight: 0
@@ -744,9 +731,11 @@ MonoBehaviour:
     fadeOutDuration: 0.2
     loop: 0
     additive: 0
+    log: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
+    normalizedTime: 0
     isPlaying: 0
     fadedWeight: 0
     normalizedWeight: 0
@@ -757,18 +746,156 @@ MonoBehaviour:
     dodgeCancelStartNormalized: 0
     dodgeCancelEndNormalized: 0
     recoveryEndNormalized: 0
-  - key: 
-    desc: swing2
-    clip: {fileID: -203655887218126122, guid: 5dd564bab85d5c3468c4c5cbb5e1cf1e, type: 3}
+  - key: hit
+    desc: 
+    clip: {fileID: -203655887218126122, guid: 91316a27f53c68f4fac0c84649983df0, type: 3}
     speed: 1
-    weight: 1
+    weight: 0.6
     fadeInDuration: 0.2
     fadeOutDuration: 0.2
     loop: 0
     additive: 0
+    log: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  currentAction: 1
+  currentAttack:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  attackStarted: 0
+  comboStarted: 0
+  dodgeStarted: 0
+  dodgeEnded: 0
+  interrupted: 0
+  hitStarted: 0
+  queued: 0
+  queuedAttack:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  queueUntil: 0
+  canCombo: 0
+  canDodgeCancel: 0
+  attackAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    additive: 0
+    log: 1
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  dodgeAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  hitAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
     isPlaying: 0
     fadedWeight: 0
     normalizedWeight: 0

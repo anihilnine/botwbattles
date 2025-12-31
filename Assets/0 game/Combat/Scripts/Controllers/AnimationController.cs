@@ -41,6 +41,9 @@ public class AnimationController : MonoBehaviour
 
         if (actionController.dodgeEnded)
             actionController.dodgeAction.Stop();
+        
+        if (actionController.hitStarted)
+            actionController.hitAction.Play();
 
         // if (actionController.interrupted)
         //     actions[2].Play();

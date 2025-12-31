@@ -17,6 +17,7 @@ public sealed class ActionController : MonoBehaviour
     public bool dodgeStarted;
     public bool dodgeEnded;
     public bool interrupted;
+    public bool hitStarted;
 
     // ───────── Queue ─────────
     public ActionType queued = ActionType.None;
@@ -29,11 +30,13 @@ public sealed class ActionController : MonoBehaviour
     
     public ActionData attackAction;
     public ActionData dodgeAction;
+    public ActionData hitAction;
 
     private void Awake()
     {
         attackAction = actions.First(x => x.key == "attack");
         dodgeAction = actions.First(x => x.key == "dodge");
+        hitAction = actions.First(x => x.key == "hit");
     }
 
     /// Call once per frame
@@ -46,6 +49,7 @@ public sealed class ActionController : MonoBehaviour
         dodgeStarted = false;
         dodgeEnded = false;
         interrupted = false;
+        hitStarted = false;
 
         // Hard interrupt
         if (gotHitStun)
@@ -109,6 +113,11 @@ public sealed class ActionController : MonoBehaviour
         }
     }
     
+    public void RequestHit()
+    {
+        hitStarted = true;
+    }
+
     public void RequestStopDodge()
     {
         if (currentAction == ActionType.Dodge)
