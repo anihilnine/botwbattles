@@ -779,9 +779,9 @@ MonoBehaviour:
   - key: breathe
     desc: 
     clip: {fileID: -203655887218126122, guid: e66a25f96a5120247979849a5cf5ada2, type: 3}
-    mask: {fileID: 31900000, guid: 25bad095379fec247a0179dc90b93ec0, type: 2}
+    mask: {fileID: 31900000, guid: acc53926559969543aac5713b85646f6, type: 2}
     speed: 1
-    weight: 1
+    weight: 3
     fadeInDuration: 0.3
     fadeOutDuration: 0.3
     loop: 1
