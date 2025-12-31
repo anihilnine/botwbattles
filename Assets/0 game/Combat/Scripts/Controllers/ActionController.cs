@@ -1,34 +1,51 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 
 public sealed class ActionController : MonoBehaviour
 {
+    private const float QUEUE_TIME = 0.2f;
+    
     public ActionData[] actions;
     
-    public ActionType CurrentAction { get; private set; } = ActionType.Locomotion;
-    public ActionData CurrentAttack { get; private set; }
+    public ActionType currentAction = ActionType.Locomotion;
+    public ActionData currentAttack;
 
     // ───────── Output events (one-frame signals) ─────────
-    public bool AttackStarted { get; private set; }
-    public bool ComboStarted  { get; private set; }
-    public bool DodgeStarted  { get; private set; }
-    public bool Interrupted   { get; private set; }
+    public bool attackStarted;
+    public bool comboStarted;
+    public bool dodgeStarted;
+    public bool dodgeEnded;
+    public bool interrupted;
 
     // ───────── Queue ─────────
-    private ActionType _queued = ActionType.None;
-    private ActionData _queuedAttack;
-    private float _queueUntil;
-
-    private const float QUEUE_TIME = 0.2f;
+    public ActionType queued = ActionType.None;
+    public ActionData queuedAttack;
+    public float queueUntil;
 
     // Cached windows
-    private bool _canCombo;
-    private bool _canDodgeCancel;
+    public bool canCombo;
+    public bool canDodgeCancel;
+    
+    public ActionData attackAction;
+    public ActionData dodgeAction;
+
+    private void Awake()
+    {
+        attackAction = actions.First(x => x.key == "attack");
+        dodgeAction = actions.First(x => x.key == "dodge");
+    }
 
     /// Call once per frame
-    public void Tick(float attackNormalizedTime, bool gotHitStun)
+    /// 
+    public void Tick(bool gotHitStun)
     {
         // Reset outputs
-        AttackStarted = ComboStarted = DodgeStarted = Interrupted = false;
+        attackStarted = false;
+        comboStarted = false;
+        dodgeStarted = false;
+        dodgeEnded = false;
+        interrupted = false;
 
         // Hard interrupt
         if (gotHitStun)
@@ -39,18 +56,20 @@ public sealed class ActionController : MonoBehaviour
         }
 
         // Update timing windows
-        if (CurrentAction == ActionType.Attack && CurrentAttack != null)
+        if (currentAction == ActionType.Attack && currentAttack != null)
         {
-            _canCombo =
-                attackNormalizedTime >= CurrentAttack.comboStartNormalized &&
-                attackNormalizedTime <= CurrentAttack.comboEndNormalized;
+            var attackNormalizedTime = attackAction.normalizedTime;
+            
+            canCombo =
+                attackNormalizedTime >= currentAttack.comboStartNormalized &&
+                attackNormalizedTime <= currentAttack.comboEndNormalized;
 
-            _canDodgeCancel =
-                attackNormalizedTime >= CurrentAttack.dodgeCancelStartNormalized &&
-                attackNormalizedTime <= CurrentAttack.dodgeCancelEndNormalized;
+            canDodgeCancel =
+                attackNormalizedTime >= currentAttack.dodgeCancelStartNormalized &&
+                attackNormalizedTime <= currentAttack.dodgeCancelEndNormalized;
 
             // Natural completion
-            if (attackNormalizedTime >= CurrentAttack.recoveryEndNormalized)
+            if (attackNormalizedTime >= currentAttack.recoveryEndNormalized)
                 EndAction();
         }
 
@@ -63,7 +82,7 @@ public sealed class ActionController : MonoBehaviour
     {
         if (CanAttackNow())
         {
-            if (CurrentAction == ActionType.Attack)
+            if (currentAction == ActionType.Attack)
             {
                 StartCombo(attack);
             }
@@ -89,43 +108,51 @@ public sealed class ActionController : MonoBehaviour
             QueueDodge();
         }
     }
+    
+    public void RequestStopDodge()
+    {
+        if (currentAction == ActionType.Dodge)
+        {
+            EndDodge();
+        }
+    }
 
     // ───────── Queue handling ─────────
 
     private void QueueAttack(ActionData attack)
     {
-        _queued = ActionType.Attack;
-        _queuedAttack = attack;
-        _queueUntil = Time.time + QUEUE_TIME;
+        queued = ActionType.Attack;
+        queuedAttack = attack;
+        queueUntil = Time.time + QUEUE_TIME;
     }
 
     private void QueueDodge()
     {
-        _queued = ActionType.Dodge;
-        _queueUntil = Time.time + QUEUE_TIME;
+        queued = ActionType.Dodge;
+        queueUntil = Time.time + QUEUE_TIME;
     }
 
     private void TryConsumeQueue()
     {
-        if (_queued == ActionType.None)
+        if (queued == ActionType.None)
             return;
 
-        if (Time.time > _queueUntil)
+        if (Time.time > queueUntil)
         {
             ClearQueue();
             return;
         }
 
-        if (_queued == ActionType.Attack && CanAttackNow())
+        if (queued == ActionType.Attack && CanAttackNow())
         {
-            if (CurrentAction == ActionType.Attack)
-                StartCombo(_queuedAttack);
+            if (currentAction == ActionType.Attack)
+                StartCombo(queuedAttack);
             else
-                StartAttack(_queuedAttack);
+                StartAttack(queuedAttack);
 
             ClearQueue();
         }
-        else if (_queued == ActionType.Dodge && CanDodgeNow())
+        else if (queued == ActionType.Dodge && CanDodgeNow())
         {
             StartDodge();
             ClearQueue();
@@ -134,57 +161,63 @@ public sealed class ActionController : MonoBehaviour
 
     private void ClearQueue()
     {
-        _queued = ActionType.None;
-        _queuedAttack = null;
+        queued = ActionType.None;
+        queuedAttack = null;
     }
 
     // ───────── Permissions ─────────
 
     private bool CanAttackNow()
     {
-        return CurrentAction == ActionType.Locomotion ||
-              (CurrentAction == ActionType.Attack && _canCombo);
+        return currentAction == ActionType.Locomotion ||
+              (currentAction == ActionType.Attack && canCombo);
     }
 
     private bool CanDodgeNow()
     {
-        return CurrentAction == ActionType.Locomotion ||
-              (CurrentAction == ActionType.Attack && _canDodgeCancel);
+        return currentAction == ActionType.Locomotion ||
+              (currentAction == ActionType.Attack && canDodgeCancel);
     }
 
     // ───────── Transitions ─────────
 
     private void StartAttack(ActionData attack)
     {
-        CurrentAction = ActionType.Attack;
-        CurrentAttack = attack;
-        AttackStarted = true;
+        currentAction = ActionType.Attack;
+        currentAttack = attack;
+        attackStarted = true;
     }
 
     private void StartCombo(ActionData attack)
     {
-        CurrentAction = ActionType.Attack;
-        CurrentAttack = attack;
-        ComboStarted = true;
+        currentAction = ActionType.Attack;
+        currentAttack = attack;
+        comboStarted = true;
     }
 
     private void StartDodge()
     {
-        CurrentAction = ActionType.Dodge;
-        CurrentAttack = null;
-        DodgeStarted = true;
+        currentAction = ActionType.Dodge;
+        currentAttack = null;
+        dodgeStarted = true;
+    }
+    
+    private void EndDodge()
+    {
+        EndAction();
+        dodgeEnded = true;
     }
 
     private void EndAction()
     {
-        CurrentAction = ActionType.Locomotion;
-        CurrentAttack = null;
+        currentAction = ActionType.Locomotion;
+        currentAttack = null;
     }
 
     private void Interrupt(ActionType action)
     {
-        CurrentAction = action;
-        CurrentAttack = null;
-        Interrupted = true;
+        currentAction = action;
+        currentAttack = null;
+        interrupted = true;
     }
 }

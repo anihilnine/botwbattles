@@ -16,11 +16,13 @@ public class ActionData
     public float fadeOutDuration = 0; // in source clip time  
     public bool loop;
     public bool additive;
+    public bool log;
 
     [Header("Debug")] 
     public int index;
     public float sourceClipTime;
     public float currentTime;
+    public float normalizedTime;
     public bool isPlaying;
     public AnimationClipPlayable playable;
     public AnimationLayerMixerPlayable mixer;
@@ -35,7 +37,6 @@ public class ActionData
     public float dodgeCancelStartNormalized;
     public float dodgeCancelEndNormalized;
     public float recoveryEndNormalized;
-
 
     public void Init(PlayableGraph graph, AnimationLayerMixerPlayable mixer, int index)
     {
@@ -53,8 +54,17 @@ public class ActionData
         graph.Connect(playable, 0, mixer, index);
     }
 
+    public void Log(string message)
+    {
+        if (!log) 
+            return;
+        
+        Debug.Log($"ActionData: {message}");
+    }
+    
     public void Play()
     {
+        Log($"Play");
         fadeOutStartTime = sourceClipTime - fadeOutDuration;
         endTime = sourceClipTime;
         isPlaying = true;
@@ -64,6 +74,7 @@ public class ActionData
 
     public void Stop()
     {
+        Log($"Stop");
         // should start stopping
         if (fadeOutDuration > 0f)
         {
@@ -79,9 +90,15 @@ public class ActionData
     public void Update()
     {
         // todo: is there a cost to doing this every frame?
+        
         playable.SetSpeed(speed);
         
         currentTime = (float)playable.GetTime();
+        normalizedTime = currentTime / endTime; // ? should this be sourceClipTime or endTime
+        Log($"currentTime: {currentTime}");
+        Log($"endTime: {endTime}");
+        Log($"normalizedTime: {normalizedTime}");
+
 
         var isFadeIn = currentTime < fadeInDuration;
         var isFadeOut =  currentTime > fadeOutStartTime;
@@ -103,6 +120,7 @@ public class ActionData
 
         if (isFinished)
         {
+            // for 'dodge' if there is a fade out duration there is a bug here because you can stop, but it loops anyway. 
             if (loop)
             {
                 playable.SetTime(0);
@@ -116,12 +134,14 @@ public class ActionData
 
     private void StopImmediate()
     {
+        Log($"StopImmediate");
         isPlaying = false;
         playable.Pause();
     }
 
     public void SetNormalizedWeight(float weight)
     {
+        Log($"SetNormalizedWeight");
         this.normalizedWeight = weight;
         mixer.SetInputWeight(index, weight);
     }

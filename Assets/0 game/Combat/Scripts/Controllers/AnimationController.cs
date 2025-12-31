@@ -30,17 +30,20 @@ public class AnimationController : MonoBehaviour
 
     private void Update()
     {
-        if (actionController.AttackStarted)
-            actions[1].Play();
+        if (actionController.attackStarted)
+            actionController.attackAction.Play();
 
-        if (actionController.ComboStarted)
-            actions[1].Play();
+        // if (actionController.comboStarted)
+        //     actions[1].Play();
 
-        if (actionController.DodgeStarted)
-            actions[2].Play();
+        if (actionController.dodgeStarted)
+            actionController.dodgeAction.Play();
 
-        if (actionController.Interrupted)
-            actions[2].Play();
+        if (actionController.dodgeEnded)
+            actionController.dodgeAction.Stop();
+
+        // if (actionController.interrupted)
+        //     actions[2].Play();
         
         foreach (var clip in actions)
         {
