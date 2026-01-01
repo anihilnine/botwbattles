@@ -46,8 +46,8 @@ public class ActionData
         this.mixer = mixer;
         sourceClipTime = clip.length;
         playable = AnimationClipPlayable.Create(graph, clip);
-        // would be good if i could re-init without restart
-        // would a scriptable object here be easier cos i can make perm changes
+        // todo would be good if i could re-init without restart
+        // todo would a scriptable object here be easier cos i can make perm changes
         if (mask != null)
         {
             Log("masking");
