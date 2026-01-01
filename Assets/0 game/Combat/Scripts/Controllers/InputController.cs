@@ -27,5 +27,8 @@ public class InputController : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.Alpha1))
             actionController.RequestStopBreathe();
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            actionController.RequestAttack(actionController.attackAction2);
     }
 }

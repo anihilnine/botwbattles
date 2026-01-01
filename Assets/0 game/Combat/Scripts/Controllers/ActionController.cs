@@ -31,6 +31,7 @@ public sealed class ActionController : MonoBehaviour
     public bool canDodgeCancel;
     
     public ActionData attackAction;
+    public ActionData attackAction2;
     public ActionData dodgeAction;
     public ActionData hitAction;
     public ActionData breathAction;
@@ -38,6 +39,7 @@ public sealed class ActionController : MonoBehaviour
     private void Awake()
     {
         attackAction = actions.First(x => x.key == "attack");
+        attackAction2 = actions.First(x => x.key == "attack2");
         dodgeAction = actions.First(x => x.key == "dodge");
         hitAction = actions.First(x => x.key == "hit");
         breathAction = actions.First(x => x.key == "breathe");

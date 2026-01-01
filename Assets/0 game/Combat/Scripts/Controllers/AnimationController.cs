@@ -31,7 +31,7 @@ public class AnimationController : MonoBehaviour
     private void Update()
     {
         if (actionController.attackStarted)
-            actionController.attackAction.Play();
+            actionController.currentAttack.Play();
 
         // if (actionController.comboStarted)
         //     actions[1].Play();

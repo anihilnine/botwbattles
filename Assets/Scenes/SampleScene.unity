@@ -633,7 +633,7 @@ MonoBehaviour:
   - key: hit
     desc: 
     clip: {fileID: -203655887218126122, guid: 91316a27f53c68f4fac0c84649983df0, type: 3}
-    mask: {fileID: 0}
+    mask: {fileID: 31900000, guid: acc53926559969543aac5713b85646f6, type: 2}
     speed: 1
     weight: 1
     fadeInDuration: 0.2
@@ -661,12 +661,64 @@ MonoBehaviour:
     clip: {fileID: -203655887218126122, guid: e66a25f96a5120247979849a5cf5ada2, type: 3}
     mask: {fileID: 31900000, guid: acc53926559969543aac5713b85646f6, type: 2}
     speed: 1
-    weight: 3
-    fadeInDuration: 0.3
-    fadeOutDuration: 0.3
+    weight: 1
+    fadeInDuration: 0.1
+    fadeOutDuration: 0.1
     loop: 1
     additive: 1
     log: 1
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: sword-defense
+    desc: 
+    clip: {fileID: -203655887218126122, guid: 983935130213c324c8cc833885831e95, type: 3}
+    mask: {fileID: 31900000, guid: acc53926559969543aac5713b85646f6, type: 2}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.1
+    fadeOutDuration: 0.1
+    loop: 1
+    additive: 1
+    log: 1
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: attack2
+    desc: swing
+    clip: {fileID: -203655887218126122, guid: 26cac1339f2e2b2479ae109d891c0b76, type: 3}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
+    loop: 0
+    additive: 0
+    log: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
