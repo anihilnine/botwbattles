@@ -46,6 +46,8 @@ public class ActionData
         this.mixer = mixer;
         sourceClipTime = clip.length;
         playable = AnimationClipPlayable.Create(graph, clip);
+        // would be good if i could re-init without restart
+        // would a scriptable object here be easier cos i can make perm changes
         if (mask != null)
         {
             Log("masking");
@@ -130,7 +132,8 @@ public class ActionData
 
         if (isFinished)
         {
-            // for 'dodge' if there is a fade out duration there is a bug here because you can stop, but it loops anyway. 
+            // todo: for 'dodge' if there is a fade out duration there is a bug here because you can stop, but it loops anyway. 
+            
             if (looping)
             {
                 playable.SetTime(0);
