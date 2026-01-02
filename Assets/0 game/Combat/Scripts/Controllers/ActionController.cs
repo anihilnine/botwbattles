@@ -44,13 +44,13 @@ public sealed class ActionController : MonoBehaviour
 
     private void Awake()
     {
-        attackAction = actions.First(x => x.key == "attack");
-        attackAction2 = actions.First(x => x.key == "attack2");
-        dodgeAction = actions.First(x => x.key == "dodge");
-        hitAction = actions.First(x => x.key == "hit");
-        breatheAction = actions.First(x => x.key == "breathe");
-        walkAction = actions.First(x => x.key == "walk");
-        idleAction = actions.First(x => x.key == "idle");
+        attackAction = actions.FirstOrDefault(x => x.key == "attack");
+        attackAction2 = actions.FirstOrDefault(x => x.key == "attack2");
+        dodgeAction = actions.FirstOrDefault(x => x.key == "dodge");
+        hitAction = actions.FirstOrDefault(x => x.key == "hit");
+        breatheAction = actions.FirstOrDefault(x => x.key == "breathe");
+        walkAction = actions.FirstOrDefault(x => x.key == "walk");
+        idleAction = actions.FirstOrDefault(x => x.key == "idle");
         
         StartIdle();
     }
@@ -72,6 +72,7 @@ public sealed class ActionController : MonoBehaviour
         walkStarted = false;
         idleEnded = false;
         idleStarted = false;
+        Debug.Log("flags cleared");
 
         // Hard interrupt
         if (gotHitStun)
@@ -171,11 +172,13 @@ public sealed class ActionController : MonoBehaviour
 
     private void StartIdle()
     {
+        Debug.Log("idle started");
         idleStarted = true;
     }
 
     private void StopIdle()
     {
+        Debug.Log("idle stopped");
         idleEnded = true;
     }
 

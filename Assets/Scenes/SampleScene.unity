@@ -213,7 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1447472621}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -426,6 +426,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &955772763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6999302
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5076442
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.86156684
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -118.986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_Name
+      value: PolygonSyntyCharacter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941555915}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941555914}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1941555913}
+  m_SourcePrefab: {fileID: 100100000, guid: 68a29e70ae95f6a4195bf0fcbb538019, type: 3}
 --- !u!1001 &1447472614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,13 +569,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maria WProp J J Ong (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1a8289cdb35d794188be30af708681c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1a8289cdb35d794188be30af708681c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 330585546}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1a8289cdb35d794188be30af708681c,
         type: 3}
@@ -534,7 +615,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1447472617}
   actionController: {fileID: 1447472620}
-  actions: []
 --- !u!95 &1447472617
 Animator:
   serializedVersion: 5
@@ -569,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionController: {fileID: 1447472620}
+  animationController: {fileID: 0}
 --- !u!114 &1447472620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,16 +1148,388 @@ MonoBehaviour:
     dodgeCancelStartNormalized: 0
     dodgeCancelEndNormalized: 0
     recoveryEndNormalized: 0
---- !u!4 &1447472621 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1a8289cdb35d794188be30af708681c,
+--- !u!1 &1941555910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 68a29e70ae95f6a4195bf0fcbb538019,
     type: 3}
-  m_PrefabInstance: {fileID: 1447472614}
+  m_PrefabInstance: {fileID: 955772763}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1941555911 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+    type: 3}
+  m_PrefabInstance: {fileID: 955772763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941555913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941555910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa186348cfe84351ab6107c55e06bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1941555911}
+  actionController: {fileID: 1941555914}
+--- !u!114 &1941555914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941555910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7354411eeca274ea4baf10cf71e4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - key: idle
+    desc: 
+    clip: {fileID: -473667693787628719, guid: 580fc907eee299f43a914da368c7a639, type: 3}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 1
+    isFirstLoop: 0
+    additive: 0
+    log: 1
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: walk
+    desc: 
+    clip: {fileID: -2621343224683262629, guid: 2511e6dc0955bde4395e6b369d7d8707, type: 3}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.5
+    fadeOutDuration: 0.5
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  currentAction: 1
+  currentAttack:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  attackStarted: 0
+  comboStarted: 0
+  dodgeStarted: 0
+  dodgeEnded: 0
+  interrupted: 0
+  hitStarted: 0
+  breatheStarted: 0
+  breatheEnded: 0
+  idleStarted: 0
+  idleEnded: 0
+  walkStarted: 0
+  walkEnded: 0
+  queued: 0
+  queuedAttack:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  queueUntil: 0
+  canCombo: 0
+  canDodgeCancel: 0
+  attackAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  attackAction2:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  dodgeAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  hitAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  breatheAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  idleAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  walkAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+--- !u!114 &1941555915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941555910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952a0276eef441469b23b0ae918af56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionController: {fileID: 1941555914}
+  animationController: {fileID: 1941555913}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 330585546}
   - {fileID: 1447472614}
+  - {fileID: 955772763}

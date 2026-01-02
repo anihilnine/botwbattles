@@ -5,11 +5,14 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     public ActionController actionController;
+    public AnimationController animationController;
 
     void Update()
     {
         actionController.Tick(gotHitStun: false);
 
+        Debug.Log("input processed");
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
             actionController.RequestAttack(actionController.attackAction);
 
@@ -36,5 +39,7 @@ public class InputController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha2))
             actionController.RequestAttack(actionController.attackAction2);
+
+        animationController.Tick();
     }
 }

@@ -76,7 +76,7 @@ public class ActionData
     
     public void Play()
     {
-        Log($"Play");
+        Log($"Play {key}");
         fadeOutStartTime = sourceClipTime - fadeOutDuration;
         endTime = sourceClipTime;
         isPlaying = true;
@@ -89,7 +89,7 @@ public class ActionData
 
     public void Stop()
     {
-        Log($"Stop");
+        Log($"Stop {key}");
         looping = false;
         // should start stopping
         if (fadeOutDuration > 0f)
@@ -111,9 +111,9 @@ public class ActionData
         
         currentTime = (float)playable.GetTime();
         normalizedTime = currentTime / endTime; // ? should this be sourceClipTime or endTime
-        // Log($"currentTime: {currentTime}");
-        // Log($"endTime: {endTime}");
-        // Log($"normalizedTime: {normalizedTime}");
+        Log($"currentTime: {currentTime}");
+        Log($"endTime: {endTime}");
+        Log($"normalizedTime: {normalizedTime}");
 
 
         var isFadeIn = currentTime < fadeInDuration;
@@ -121,7 +121,7 @@ public class ActionData
 
         if (looping)
         {
-            isFadeIn = isFirstLoop;
+            isFadeIn = isFadeIn && isFirstLoop;
             isFadeOut = false; // looping gets set to false on stop, so this wont happen on final loop
         }
         
@@ -159,14 +159,14 @@ public class ActionData
 
     private void StopImmediate()
     {
-        Log($"StopImmediate");
+        Log($"StopImmediate {key}");
         isPlaying = false;
         playable.Pause();
     }
 
     public void SetNormalizedWeight(float weight)
     {
-        Log($"SetNormalizedWeight");
+        Log($"SetNormalizedWeight {key} {weight:N3}");
         this.normalizedWeight = weight;
         mixer.SetInputWeight(index, weight);
     }
