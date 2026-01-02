@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
@@ -43,10 +44,22 @@ public class AnimationController : MonoBehaviour
             actionController.dodgeAction.Stop();
         
         if (actionController.breatheStarted)
-            actionController.breathAction.Play();
+            actionController.breatheAction.Play();
 
         if (actionController.breatheEnded)
-            actionController.breathAction.Stop();
+            actionController.breatheAction.Stop();
+        
+        if (actionController.walkStarted)
+            actionController.walkAction.Play();
+
+        if (actionController.walkEnded)
+            actionController.walkAction.Stop();
+        
+        if (actionController.idleStarted)
+            actionController.idleAction.Play();
+
+        if (actionController.idleEnded)
+            actionController.idleAction.Stop();
         
         if (actionController.hitStarted)
             actionController.hitAction.Play();
@@ -95,7 +108,29 @@ public class AnimationController : MonoBehaviour
         }
 
         graph.Evaluate(Time.deltaTime);
+        
+        // zero out root motion
+        //this.transform.position = Vector3.zero;
+        
     }
+    //
+    // void OnAnimatorMove()
+    // {
+    //     // animator.deltaPosition is the root motion this frame
+    //     Vector3 desired = animator.deltaPosition;
+    //
+    //     // feed into your motor (which does capsule cast)
+    //     this.transform.Translate(desired.x, desired.y, -desired.z);
+    //     //motor.Move(desired); // should collide & slide
+    //     //
+    //     // there are issues ....... 
+    //     //     1. i think my animations and mesh are kinda shit
+    //     //         when i make the rig humanoid things stop to work
+    //     //         and when i try and share avatars across animations. one has sword, one doesnt 
+    //     //         >>>>>>>>>> i should just use some working pack so i dont have to consider that rn
+    //     //     
+    //     //     2. i dont have a clear way to ignore root motion and apply it manually. it seems to put it on the bone anyway  
+    // }
 
     void OnDestroy()
     {

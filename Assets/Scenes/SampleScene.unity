@@ -208,12 +208,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -2.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1447472621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -491,7 +491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1a8289cdb35d794188be30af708681c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 330585546}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1a8289cdb35d794188be30af708681c,
         type: 3}
@@ -544,7 +548,7 @@ Animator:
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -584,9 +588,10 @@ MonoBehaviour:
     mask: {fileID: 0}
     speed: 1
     weight: 1
-    fadeInDuration: 0
-    fadeOutDuration: 0
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
     loop: 1
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -613,6 +618,7 @@ MonoBehaviour:
     fadeInDuration: 0.2
     fadeOutDuration: 0.2
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -639,6 +645,7 @@ MonoBehaviour:
     fadeInDuration: 0.2
     fadeOutDuration: 0.2
     loop: 0
+    isFirstLoop: 0
     additive: 1
     log: 0
     index: 0
@@ -665,6 +672,7 @@ MonoBehaviour:
     fadeInDuration: 0.1
     fadeOutDuration: 0.1
     loop: 1
+    isFirstLoop: 0
     additive: 1
     log: 1
     index: 0
@@ -691,6 +699,7 @@ MonoBehaviour:
     fadeInDuration: 0.1
     fadeOutDuration: 0.1
     loop: 1
+    isFirstLoop: 0
     additive: 1
     log: 1
     index: 0
@@ -712,13 +721,68 @@ MonoBehaviour:
     desc: swing
     clip: {fileID: -203655887218126122, guid: 26cac1339f2e2b2479ae109d891c0b76, type: 3}
     mask: {fileID: 0}
-    speed: 1
+    speed: 2
     weight: 1
     fadeInDuration: 0.2
     fadeOutDuration: 0.2
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: walk
+    desc: swing
+    clip: {fileID: -203655887218126122, guid: 19035ffad68c2ea4f9040e4a43905001, type: 3}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.2
+    fadeOutDuration: 0.2
+    loop: 1
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  - key: idle
+    desc: 
+    clip: {fileID: -203655887218126122, guid: e66a25f96a5120247979849a5cf5ada2, type: 3}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0.1
+    fadeOutDuration: 0.1
+    loop: 1
+    isFirstLoop: 0
+    additive: 0
+    log: 1
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -745,6 +809,7 @@ MonoBehaviour:
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -770,6 +835,10 @@ MonoBehaviour:
   hitStarted: 0
   breatheStarted: 0
   breatheEnded: 0
+  idleStarted: 0
+  idleEnded: 0
+  walkStarted: 0
+  walkEnded: 0
   queued: 0
   queuedAttack:
     key: 
@@ -781,6 +850,7 @@ MonoBehaviour:
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -811,8 +881,37 @@ MonoBehaviour:
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 1
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  attackAction2:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -838,6 +937,7 @@ MonoBehaviour:
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -865,6 +965,7 @@ MonoBehaviour:
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -882,7 +983,7 @@ MonoBehaviour:
     dodgeCancelStartNormalized: 0
     dodgeCancelEndNormalized: 0
     recoveryEndNormalized: 0
-  breathAction:
+  breatheAction:
     key: 
     desc: 
     clip: {fileID: 0}
@@ -892,6 +993,7 @@ MonoBehaviour:
     fadeInDuration: 0
     fadeOutDuration: 0
     loop: 0
+    isFirstLoop: 0
     additive: 0
     log: 0
     index: 0
@@ -909,11 +1011,72 @@ MonoBehaviour:
     dodgeCancelStartNormalized: 0
     dodgeCancelEndNormalized: 0
     recoveryEndNormalized: 0
+  idleAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+  walkAction:
+    key: 
+    desc: 
+    clip: {fileID: 0}
+    mask: {fileID: 0}
+    speed: 1
+    weight: 1
+    fadeInDuration: 0
+    fadeOutDuration: 0
+    loop: 0
+    isFirstLoop: 0
+    additive: 0
+    log: 0
+    index: 0
+    sourceClipTime: 0
+    currentTime: 0
+    normalizedTime: 0
+    isPlaying: 0
+    fadedWeight: 0
+    normalizedWeight: 0
+    endTime: 0
+    fadeOutStartTime: 0
+    looping: 0
+    comboStartNormalized: 0
+    comboEndNormalized: 0
+    dodgeCancelStartNormalized: 0
+    dodgeCancelEndNormalized: 0
+    recoveryEndNormalized: 0
+--- !u!4 &1447472621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1a8289cdb35d794188be30af708681c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1447472614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1447472614}

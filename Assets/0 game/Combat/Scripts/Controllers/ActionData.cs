@@ -60,6 +60,7 @@ public class ActionData
             mixer.SetLayerAdditive((uint)index, true);
             // todo: add avatar mask
         }
+        
         playable.Pause();
         playable.SetSpeed(speed);
         graph.Connect(playable, 0, mixer, index);

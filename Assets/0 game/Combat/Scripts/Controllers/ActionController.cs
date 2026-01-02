@@ -20,6 +20,10 @@ public sealed class ActionController : MonoBehaviour
     public bool hitStarted;
     public bool breatheStarted;
     public bool breatheEnded;
+    public bool idleStarted;
+    public bool idleEnded;
+    public bool walkStarted;
+    public bool walkEnded;
 
     // ───────── Queue ─────────
     public ActionType queued = ActionType.None;
@@ -34,7 +38,9 @@ public sealed class ActionController : MonoBehaviour
     public ActionData attackAction2;
     public ActionData dodgeAction;
     public ActionData hitAction;
-    public ActionData breathAction;
+    public ActionData breatheAction;
+    public ActionData idleAction;
+    public ActionData walkAction;
 
     private void Awake()
     {
@@ -42,7 +48,11 @@ public sealed class ActionController : MonoBehaviour
         attackAction2 = actions.First(x => x.key == "attack2");
         dodgeAction = actions.First(x => x.key == "dodge");
         hitAction = actions.First(x => x.key == "hit");
-        breathAction = actions.First(x => x.key == "breathe");
+        breatheAction = actions.First(x => x.key == "breathe");
+        walkAction = actions.First(x => x.key == "walk");
+        idleAction = actions.First(x => x.key == "idle");
+        
+        StartIdle();
     }
 
     /// Call once per frame
@@ -58,6 +68,10 @@ public sealed class ActionController : MonoBehaviour
         hitStarted = false;
         breatheEnded = false;
         breatheStarted = false;
+        walkEnded = false;
+        walkStarted = false;
+        idleEnded = false;
+        idleStarted = false;
 
         // Hard interrupt
         if (gotHitStun)
@@ -123,12 +137,56 @@ public sealed class ActionController : MonoBehaviour
 
     public void RequestBreathe()
     {
+        StartBreathe();
+    }
+
+    private void StartBreathe()
+    {
         breatheStarted = true;
     }
 
     public void RequestStopBreathe()
     {
+        StopBreathe();
+    }
+
+    private void StopBreathe()
+    {
         breatheEnded = true;
+    }
+    
+    
+    public void RequestStartWalk()
+    {
+        StopIdle();
+        StartWalk();
+    }
+
+    
+    public void RequestStopWalk()
+    {
+        StartIdle();
+        StopWalk();
+    }
+
+    private void StartIdle()
+    {
+        idleStarted = true;
+    }
+
+    private void StopIdle()
+    {
+        idleEnded = true;
+    }
+
+    private void StartWalk()
+    {
+        walkStarted = true;
+    }
+
+    private void StopWalk()
+    {
+        walkEnded = true;
     }
 
     public void RequestHit()

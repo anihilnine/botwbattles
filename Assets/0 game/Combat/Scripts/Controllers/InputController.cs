@@ -28,6 +28,12 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Alpha1))
             actionController.RequestStopBreathe();
         
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            actionController.RequestStartWalk();
+        
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+            actionController.RequestStopWalk();
+        
         if (Input.GetKeyDown(KeyCode.Alpha2))
             actionController.RequestAttack(actionController.attackAction2);
     }

@@ -4,5 +4,9 @@
     Locomotion,
     Attack,
     Dodge,
-    HitStun
+    HitStun,
+    
+    Idle,
+    Walk,
+    Run
 }
