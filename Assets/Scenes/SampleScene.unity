@@ -746,7 +746,7 @@ MonoBehaviour:
     recoveryEndNormalized: 0
   - key: walk
     desc: swing
-    clip: {fileID: -203655887218126122, guid: 19035ffad68c2ea4f9040e4a43905001, type: 3}
+    clip: {fileID: -203655887218126122, guid: 86c715226bc049841ac25d38e72836bb, type: 3}
     mask: {fileID: 0}
     speed: 1
     weight: 1
