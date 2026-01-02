@@ -16,6 +16,7 @@ public class ActionData
     public float fadeInDuration = 0; // in source clip time
     public float fadeOutDuration = 0; // in source clip time  
     public bool loop;
+    public bool isFirstLoop;
     public bool additive;
     public bool log;
 
@@ -79,6 +80,8 @@ public class ActionData
         endTime = sourceClipTime;
         isPlaying = true;
         looping = loop;
+        isFirstLoop = looping;
+            
         playable.SetTime(0);
         playable.Play();
     }
@@ -115,6 +118,12 @@ public class ActionData
         var isFadeIn = currentTime < fadeInDuration;
         var isFadeOut =  currentTime > fadeOutStartTime;
 
+        if (looping)
+        {
+            isFadeIn = isFirstLoop;
+            isFadeOut = false; // looping gets set to false on stop, so this wont happen on final loop
+        }
+        
         if (isFadeOut)
         {
             fadedWeight = Mathf.Clamp01(Mathf.InverseLerp(endTime, fadeOutStartTime, currentTime)) * weight;
@@ -132,10 +141,12 @@ public class ActionData
 
         if (isFinished)
         {
-            // todo: for 'dodge' if there is a fade out duration there is a bug here because you can stop, but it loops anyway. 
+            // todo we cant blend a clip to itself, so the only loops we support are when the clips are authored as perfect loops, and we hard cut without blend, but it lines up 
+            // todo a clip that is fading out might hit the end of the clip and really should loop one last time while finishing the fadeout
             
             if (looping)
             {
+                isFirstLoop = false;
                 playable.SetTime(0);
             }
             else
