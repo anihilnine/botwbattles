@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
@@ -128,15 +129,26 @@ public class AnimationController : MonoBehaviour
         {
             //if (action.isPlaying)
             {
+                
+                GUI.color = new Color(1, 1, 1, 1 * action.normalizedWeight);
+                var amt = 100;
+
+                GUI.Label(new Rect(50, y, 800, 100), new String('-', amt));
+                GUI.Label(new Rect(50, y, 800, 100), new String(' ', (int)(action.endTime / action.sourceClipTime * amt)) + "|");
+                GUI.Label(new Rect(50, y, 800, 100), new String(' ', (int)(action.normalizedTime * amt)) + "o");
+                y += 10;
+                
+                GUI.color = action.isPlaying ? Color.white : Color.red;
                 var playing = action.isPlaying ? "Y" : "n";
-                var text = $"{action.key} ntime={action.normalizedTime:P2} fweight={action.fadedWeight} nfweight={action.normalizedWeight:P2} playing={playing}";
+                var text = $"{action.key} ntime={action.normalizedTime:P0} fweight={action.fadedWeight:N2} nfweight={action.normalizedWeight:P0} playing={playing}";
                 //Debug.Log($"action.normalizedWeight == {action.normalizedWeight}");
                 if (action.looping)
                 {
                     text += " looping";
                 }
                 GUI.Label(new Rect(50, y, 800, 100), text);
-                y += 30;
+                y += 40;
+
             }
         }
     }

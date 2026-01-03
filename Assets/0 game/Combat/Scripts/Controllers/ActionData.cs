@@ -115,7 +115,7 @@ public class ActionData
         playable.SetSpeed(speed);
         
         currentTime = (float)playable.GetTime();
-        normalizedTime = currentTime / endTime; // ? should this be sourceClipTime or endTime
+        normalizedTime = currentTime / sourceClipTime; // ? should this be sourceClipTime or endTime
         // Log($"currentTime: {currentTime}");
         // Log($"endTime: {endTime}");
         // Log($"normalizedTime: {normalizedTime}");

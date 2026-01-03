@@ -615,6 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1447472617}
   actionController: {fileID: 1447472620}
+  timeScale: 0
   animLayers: []
 --- !u!95 &1447472617
 Animator:
@@ -1277,6 +1278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1941555911}
   actionController: {fileID: 1941555914}
+  timeScale: 0.1
   animLayers:
   - key: base
     normalizeWeights: 1
