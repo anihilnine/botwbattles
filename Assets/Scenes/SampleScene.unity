@@ -1193,8 +1193,8 @@ MonoBehaviour:
     mask: {fileID: 0}
     speed: 1
     weight: 1
-    fadeInDuration: 0
-    fadeOutDuration: 0
+    fadeInDuration: 0.5
+    fadeOutDuration: 0.5
     loop: 1
     isFirstLoop: 0
     additive: 0
@@ -1216,14 +1216,14 @@ MonoBehaviour:
     recoveryEndNormalized: 0
   - key: walk
     desc: 
-    clip: {fileID: -2621343224683262629, guid: 2511e6dc0955bde4395e6b369d7d8707, type: 3}
+    clip: {fileID: -5606035135764618435, guid: 673ce1a7a02a07a4195366197dd832c4, type: 3}
     mask: {fileID: 0}
     speed: 1
     weight: 1
     fadeInDuration: 0.5
     fadeOutDuration: 0.5
     loop: 0
-    isFirstLoop: 0
+    isFirstLoop: 1
     additive: 0
     log: 0
     index: 0

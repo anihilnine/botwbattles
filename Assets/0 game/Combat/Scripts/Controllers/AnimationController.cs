@@ -119,6 +119,25 @@ public class AnimationController : MonoBehaviour
         //this.transform.position = Vector3.zero;
         
     }
+
+    private void OnGUI()
+    {
+        var y = 50;
+        foreach (var action in _actions)
+        {
+            //if (action.isPlaying)
+            {
+                var text = $"{action.key} ntime={action.normalizedTime:P2} nweight={action.normalizedWeight:P2}";
+                if (action.looping)
+                {
+                    text += " looping";
+                }
+                GUI.Label(new Rect(50, y, 400, 100), text);
+                y += 30;
+            }
+        }
+    }
+
     //
     // void OnAnimatorMove()
     // {

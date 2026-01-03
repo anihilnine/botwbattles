@@ -115,10 +115,16 @@ public class ActionData
         Log($"endTime: {endTime}");
         Log($"normalizedTime: {normalizedTime}");
 
-
         var isFadeIn = currentTime < fadeInDuration;
         var isFadeOut =  currentTime > fadeOutStartTime;
 
+        // when switching from idle to walk it should fade, so it can fade from one to another
+        // but it should never have <1 on that layer. it should get normalized? or it shouldnt fade in when its from nothing
+        // and it shouldnt fade out on the base layer as well, it should hold? the walk layer doesnt loop and when it completes it fades out
+        // >>> for the base layer it should only fade it changing clips, and then it should normalize it
+        // >>> but maybe then you can only have 2 clips playing ever?
+        // >>> and maybe other layers should normalize too? 
+        
         if (looping)
         {
             isFadeIn = isFadeIn && isFirstLoop;

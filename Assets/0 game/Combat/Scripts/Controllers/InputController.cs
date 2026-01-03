@@ -9,8 +9,6 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-        actionController.Tick(gotHitStun: false);
-
         Debug.Log("input processed");
         
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -41,5 +39,7 @@ public class InputController : MonoBehaviour
             actionController.RequestAttack(actionController.attackAction2);
 
         animationController.Tick();
+        
+        actionController.Tick(gotHitStun: false);
     }
 }
