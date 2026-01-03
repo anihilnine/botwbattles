@@ -615,6 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1447472617}
   actionController: {fileID: 1447472620}
+  animLayers: []
 --- !u!95 &1447472617
 Animator:
   serializedVersion: 5
@@ -675,6 +676,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -685,6 +687,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -702,6 +709,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -712,6 +720,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -729,6 +742,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 1
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -739,6 +753,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -756,6 +775,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 1
     log: 1
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -766,6 +786,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -783,6 +808,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 1
     log: 1
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -793,6 +819,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -810,6 +841,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -820,6 +852,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -837,6 +874,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -847,6 +885,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -864,6 +907,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 1
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -874,6 +918,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -893,6 +942,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -903,6 +953,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -934,6 +989,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -944,6 +1000,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -965,6 +1026,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 1
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -975,6 +1037,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -993,6 +1060,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1003,6 +1071,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1021,6 +1094,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1031,6 +1105,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1049,6 +1128,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1059,6 +1139,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1077,6 +1162,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1087,6 +1173,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1105,6 +1196,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1115,6 +1207,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1133,6 +1230,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1143,6 +1241,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1174,6 +1277,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1941555911}
   actionController: {fileID: 1941555914}
+  animLayers:
+  - key: base
+    normalizeWeights: 1
+    allowNonCrossOverFades: 0
+    sumWeights: 0
 --- !u!114 &1941555914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1307,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 1
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1209,6 +1318,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1223,9 +1337,10 @@ MonoBehaviour:
     fadeInDuration: 0.5
     fadeOutDuration: 0.5
     loop: 0
-    isFirstLoop: 1
+    isFirstLoop: 0
     additive: 0
-    log: 0
+    log: 1
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1236,6 +1351,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1255,6 +1375,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1265,6 +1386,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1296,6 +1422,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1306,6 +1433,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1327,6 +1459,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1337,6 +1470,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1355,6 +1493,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1365,6 +1504,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1383,6 +1527,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1393,6 +1538,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1411,6 +1561,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1421,6 +1572,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1439,6 +1595,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1449,6 +1606,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1467,6 +1629,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1477,6 +1640,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0
@@ -1495,6 +1663,7 @@ MonoBehaviour:
     isFirstLoop: 0
     additive: 0
     log: 0
+    layerIndex: 0
     index: 0
     sourceClipTime: 0
     currentTime: 0
@@ -1505,6 +1674,11 @@ MonoBehaviour:
     endTime: 0
     fadeOutStartTime: 0
     looping: 0
+    layer:
+      key: 
+      normalizeWeights: 0
+      allowNonCrossOverFades: 0
+      sumWeights: 0
     comboStartNormalized: 0
     comboEndNormalized: 0
     dodgeCancelStartNormalized: 0

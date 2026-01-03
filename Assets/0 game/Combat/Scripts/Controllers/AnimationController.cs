@@ -7,10 +7,12 @@ public class AnimationController : MonoBehaviour
 {
     public Animator animator;
     public ActionController actionController;
+    public float timeScale = 1;
     
     PlayableGraph graph;
 
     private ActionData[] _actions;
+    public AnimLayerData[] animLayers;
 
     public AnimationController(ActionData[] actions)
     {
@@ -27,7 +29,8 @@ public class AnimationController : MonoBehaviour
         var mixer = AnimationLayerMixerPlayable.Create(graph, _actions.Length);
         for (var i = 0; i < _actions.Length; i++)
         {
-            _actions[i].Init(graph, mixer, i);
+            var action = _actions[i];
+            action.Init(graph, mixer, i, animLayers[action.layerIndex]);
         }
 
         output.SetSourcePlayable(mixer);
@@ -36,7 +39,6 @@ public class AnimationController : MonoBehaviour
 
     public void Tick()
     {
-        Debug.Log("animations starting");
         if (actionController.attackStarted)
             actionController.currentAttack.Play();
 
@@ -78,42 +80,41 @@ public class AnimationController : MonoBehaviour
             clip.Update();
         }
 
-        float sumWeight = 0;
+        foreach (var layer in animLayers)
+        {
+            layer.sumWeights = 0;
+        }
+        
         foreach (var clip in _actions)
         {
             if (clip.isPlaying)
             {
-                sumWeight += clip.fadedWeight;
+                //Debug.Log($"clip weight {clip.fadedWeight}");
+                clip.layer.sumWeights += clip.fadedWeight;
             }
         }
 
-        // todo: base layer
-        // todo: sum primary and secondary animations seperately with budget for secondary
-        if (sumWeight > 0)
+        foreach (var layer in animLayers)
         {
-            foreach (var clip in _actions)
-            {
-                if (clip.isPlaying)
-                {
-                    //var weight = clip.fadedWeight / sumWeight;
-                    var weight = clip.fadedWeight;
-                    clip.SetNormalizedWeight(weight);
-                }
-                else
-                {
-                    clip.SetNormalizedWeight(0);
-                }
-            }
+            //Debug.Log($"layer weight {layer.key} {layer.sumWeights}");
         }
-        else
+
+        // todo: sum primary and secondary animations seperately with budget for secondary
+        foreach (var clip in _actions)
         {
-            foreach (var clip in _actions)
+            if (clip.isPlaying)
+            {
+                var weight = clip.fadedWeight / clip.layer.sumWeights;
+                //Debug.Log($"clip weight {clip.fadedWeight} / {clip.layer.sumWeights} = {weight}");
+                clip.SetNormalizedWeight(weight);
+            }
+            else
             {
                 clip.SetNormalizedWeight(0);
             }
         }
 
-        graph.Evaluate(Time.deltaTime);
+        graph.Evaluate(Time.deltaTime * timeScale);
         
         // zero out root motion
         //this.transform.position = Vector3.zero;
@@ -127,12 +128,14 @@ public class AnimationController : MonoBehaviour
         {
             //if (action.isPlaying)
             {
-                var text = $"{action.key} ntime={action.normalizedTime:P2} nweight={action.normalizedWeight:P2}";
+                var playing = action.isPlaying ? "Y" : "n";
+                var text = $"{action.key} ntime={action.normalizedTime:P2} fweight={action.fadedWeight} nfweight={action.normalizedWeight:P2} playing={playing}";
+                //Debug.Log($"action.normalizedWeight == {action.normalizedWeight}");
                 if (action.looping)
                 {
                     text += " looping";
                 }
-                GUI.Label(new Rect(50, y, 400, 100), text);
+                GUI.Label(new Rect(50, y, 800, 100), text);
                 y += 30;
             }
         }

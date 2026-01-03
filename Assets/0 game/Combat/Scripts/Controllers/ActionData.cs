@@ -19,6 +19,7 @@ public class ActionData
     public bool isFirstLoop;
     public bool additive;
     public bool log;
+    public int layerIndex;
 
     [Header("=== Debug")] 
     public int index;
@@ -33,7 +34,8 @@ public class ActionData
     public float endTime;
     public float fadeOutStartTime;
     public bool looping;
-    
+    public AnimLayerData layer;
+
     [Header("=== Todo")] 
     public float comboStartNormalized;
     public float comboEndNormalized;
@@ -41,17 +43,17 @@ public class ActionData
     public float dodgeCancelEndNormalized;
     public float recoveryEndNormalized;
 
-    public void Init(PlayableGraph graph, AnimationLayerMixerPlayable mixer, int index)
+    public void Init(PlayableGraph graph, AnimationLayerMixerPlayable mixer, int index, AnimLayerData layer)
     {
         this.index = index;
         this.mixer = mixer;
+        this.layer = layer;
         sourceClipTime = clip.length;
         playable = AnimationClipPlayable.Create(graph, clip);
         // todo would be good if i could re-init without restart
         // todo would a scriptable object here be easier cos i can make perm changes
         if (mask != null)
         {
-            Log("masking");
             mixer.SetLayerMaskFromAvatarMask((uint)index, mask);
         }
 
@@ -105,15 +107,18 @@ public class ActionData
 
     public void Update()
     {
+        if (!isPlaying)
+            return;
+        
         // todo: is there a cost to doing this every frame?
         
         playable.SetSpeed(speed);
         
         currentTime = (float)playable.GetTime();
         normalizedTime = currentTime / endTime; // ? should this be sourceClipTime or endTime
-        Log($"currentTime: {currentTime}");
-        Log($"endTime: {endTime}");
-        Log($"normalizedTime: {normalizedTime}");
+        // Log($"currentTime: {currentTime}");
+        // Log($"endTime: {endTime}");
+        // Log($"normalizedTime: {normalizedTime}");
 
         var isFadeIn = currentTime < fadeInDuration;
         var isFadeOut =  currentTime > fadeOutStartTime;
@@ -150,7 +155,10 @@ public class ActionData
         {
             // todo we cant blend a clip to itself, so the only loops we support are when the clips are authored as perfect loops, and we hard cut without blend, but it lines up 
             // todo a clip that is fading out might hit the end of the clip and really should loop one last time while finishing the fadeout
-            
+            // + if haven't switched completely from idle, and go back to idle, then theres a hard jump, because its resetting idle position. (don't reset position?)
+            // + the walk animation isn't set to loop so at some point its dumb due to content
+            //     + the animation hard clips sometimes
+
             if (looping)
             {
                 isFirstLoop = false;
@@ -172,7 +180,7 @@ public class ActionData
 
     public void SetNormalizedWeight(float weight)
     {
-        Log($"SetNormalizedWeight {key} {weight:N3}");
+        //Log($"SetNormalizedWeight {key} {weight:N3}");
         this.normalizedWeight = weight;
         mixer.SetInputWeight(index, weight);
     }

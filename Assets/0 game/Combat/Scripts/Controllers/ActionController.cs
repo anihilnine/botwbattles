@@ -72,7 +72,7 @@ public sealed class ActionController : MonoBehaviour
         walkStarted = false;
         idleEnded = false;
         idleStarted = false;
-        Debug.Log("flags cleared");
+        //Debug.Log("flags cleared");
 
         // Hard interrupt
         if (gotHitStun)
@@ -172,13 +172,11 @@ public sealed class ActionController : MonoBehaviour
 
     private void StartIdle()
     {
-        Debug.Log("idle started");
         idleStarted = true;
     }
 
     private void StopIdle()
     {
-        Debug.Log("idle stopped");
         idleEnded = true;
     }
 

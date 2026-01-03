@@ -9,8 +9,6 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("input processed");
-        
         if (Input.GetKeyDown(KeyCode.Mouse0))
             actionController.RequestAttack(actionController.attackAction);
 

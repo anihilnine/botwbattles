@@ -15,7 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
-    motionNodeName: 
+    motionNodeName: root
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -1549,7 +1549,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b9745fea1f5904242a93d6838cb1b985, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b9745fea1f5904242a93d6838cb1b985,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
