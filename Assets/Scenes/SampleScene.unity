@@ -489,6 +489,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PolygonSyntyCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 68a29e70ae95f6a4195bf0fcbb538019,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1278,7 +1283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1941555911}
   actionController: {fileID: 1941555914}
-  timeScale: 0.1
+  timeScale: 0.5
   animLayers:
   - key: base
     normalizeWeights: 1

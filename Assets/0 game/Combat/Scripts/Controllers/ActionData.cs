@@ -158,6 +158,8 @@ public class ActionData
             // + if haven't switched completely from idle, and go back to idle, then theres a hard jump, because its resetting idle position. (don't reset position?)
             // + the walk animation isn't set to loop so at some point its dumb due to content
             //     + the animation hard clips sometimes
+            
+            // if apply root motion is on then it can slowly turn my character permanently. seems that is correct though?
 
             if (looping)
             {
